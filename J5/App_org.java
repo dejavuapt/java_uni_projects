@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class App_org implements GlobalConstants{
     
@@ -23,6 +24,12 @@ public class App_org implements GlobalConstants{
         alemployees = new ArrayList<>();
         this.setInfoOrganizationFromFile(fileName);
     }  
+
+
+    //private sorting methodes
+    public int compare(App_employee e1, App_employee e2){
+        return e1.getEmployeeName().compareTo(e2.getEmployeeName());
+    }
     
     public void add(App_employee e){
         alemployees.add(e);
@@ -36,8 +43,12 @@ public class App_org implements GlobalConstants{
         return sname;
     }
 
+    // public void sort(){
+    //     alemployees.sort((o1,o2) -> o1.compareTo(o2));
+    // }
+
     public void sort(){
-        alemployees.sort((o1,o2) -> o1.compareTo(o2));
+        Collections.sort(alemployees,new SortByName());
     }
 
     //print informations

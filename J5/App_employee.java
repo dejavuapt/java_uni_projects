@@ -43,13 +43,14 @@ public class App_employee implements GlobalConstants{
     // methodes randomingValue getUserValues
 
     public void setUserInformation(){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter a name of employee: "); sname = scan.next() + " " + scan.next();
-        System.out.print("Enter a function: "); sposition = scan.next();
-        System.out.print("Salary: "); isalary = scan.nextInt();
-        System.out.print("Enter a year when employee start work (like 2001-01-01): "); 
-        String str = scan.next(); 
-        ldyearOfEmployment = LocalDate.parse(str, dtf);
+        try (Scanner scan = new Scanner(System.in)) {
+            System.out.print("Enter a name of employee: "); sname = scan.next() + " " + scan.next();
+            System.out.print("Enter a function: "); sposition = scan.next();
+            System.out.print("Salary: "); isalary = scan.nextInt();
+            System.out.print("Enter a year when employee start work (like 2001-01-01): "); 
+            String str = scan.next(); 
+            ldyearOfEmployment = LocalDate.parse(str, dtf);
+        }
     }
     
     // overrides
@@ -57,6 +58,7 @@ public class App_employee implements GlobalConstants{
     public String toString(){
         return "[ " + sname + " | " + sposition + " | " + isalary + " | " + ldyearOfEmployment + " ]"; 
     }
+
     
     public int compareTo(App_employee o){
         return this.getEmployeeName().compareTo(o.getEmployeeName());
