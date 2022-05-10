@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 
-public class App_employee implements GlobalConstants{
+public class App_employee implements GlobalConstants, Comparable<App_employee>{
     
     //fields ---------------------------------------------
     private  String sname;

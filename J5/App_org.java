@@ -43,12 +43,18 @@ public class App_org implements GlobalConstants{
         return sname;
     }
 
+
+
     // public void sort(){
     //     alemployees.sort((o1,o2) -> o1.compareTo(o2));
     // }
 
+    // public void sort(){
+    //     Collections.sort(alemployees,new SortByName());
+    // }
+
     public void sort(){
-        Collections.sort(alemployees,new SortByName());
+        Collections.sort(alemployees);
     }
 
     //print informations
